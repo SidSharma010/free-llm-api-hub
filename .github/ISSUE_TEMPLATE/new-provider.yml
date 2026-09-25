@@ -1,0 +1,38 @@
+name: New provider
+description: Suggest a provider with an ongoing free tier
+labels: ["provider"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Provider name
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Official documentation URL
+      description: Where the free tier and its limits are described.
+    validations:
+      required: true
+  - type: textarea
+    id: free
+    attributes:
+      label: What the free tier offers
+      description: Limits, whether a payment method is needed, and whether it is ongoing rather than a one-time credit. Quote the provider's documentation where possible.
+    validations:
+      required: true
+  - type: input
+    id: base
+    attributes:
+      label: API base URL
+      description: Link the documentation page that states it.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This is the provider's own service, not a reseller or unofficial proxy.
+          required: true
+        - label: I did not include an API key or other secret.
+          required: true

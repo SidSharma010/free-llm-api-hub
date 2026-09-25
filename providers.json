@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "last_verified_note": "Each provider has its own last_verified date. Values not confirmed from official documentation are the string \"unverified\".",
+  "providers": [
+    {
+      "id": "groq",
+      "name": "Groq",
+      "signup_url": "https://console.groq.com/keys",
+      "docs_url": "https://console.groq.com/docs/rate-limits",
+      "api_base_url": "https://api.groq.com/openai/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": true,
+      "anthropic_base_url": null,
+      "card_required": "unverified",
+      "limits": {
+        "summary": "Free plan: 30 RPM, 1K RPD, 8K TPM, 200K TPD on the chat models listed below. Limits apply per organization.",
+        "detail_url": "https://console.groq.com/docs/rate-limits"
+      },
+      "models": [
+        {"id": "openai/gpt-oss-120b"},
+        {"id": "openai/gpt-oss-20b"},
+        {"id": "qwen/qwen3.8-27b"}
+      ],
+      "notes": "Responses API is documented as beta and lacks previous_response_id, store, truncation and stateful conversations. The docs only mention a payment method as required to upgrade to the Developer plan; they do not state whether the Free plan needs one.",
+      "sources": [
+        "https://console.groq.com/docs/rate-limits",
+        "https://console.groq.com/docs/openai",
+        "https://console.groq.com/docs/responses-api",
+        "https://console.groq.com/docs/billing-faqs"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "signup_url": "https://cloud.cerebras.ai",
+      "docs_url": "https://inference-docs.cerebras.ai/support/rate-limits",
+      "api_base_url": "https://api.cerebras.ai/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": "unverified",
+      "anthropic_base_url": null,
+      "card_required": true,
+      "limits": {
+        "summary": "Documented as a free trial tier: 5 RPM, 30K uncached TPM, 90K total TPM, 1M tokens per hour, 1M tokens per day on gpt-oss-120b and qwen-3.8-27b.",
+        "detail_url": "https://inference-docs.cerebras.ai/support/rate-limits"
+      },
+      "models": [
+        {"id": "gpt-oss-120b"},
+        {"id": "qwen-3.8-27b"}
+      ],
+      "notes": "A verified payment method is required to activate the $5 in free credits; without it, Playground and API access stay inactive. Cerebras' own docs call this a free trial tier, so it is not a permanent no-card free plan.",
+      "sources": [
+        "https://inference-docs.cerebras.ai/support/rate-limits",
+        "https://inference-docs.cerebras.ai/quickstart",
+        "https://inference-docs.cerebras.ai/resources/openai"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "google-ai-studio",
+      "name": "Google AI Studio (Gemini API)",
+      "signup_url": "https://aistudio.google.com/apikey",
+      "docs_url": "https://ai.google.dev/gemini-api/docs/rate-limits",
+      "api_base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "api_format": "openai-chat",
+      "supports_responses_api": "unverified",
+      "anthropic_base_url": null,
+      "card_required": "unverified",
+      "limits": {
+        "summary": "unverified. Google's docs list models with a free tier but do not publish numeric free-tier limits; they point to the rate limit view in AI Studio.",
+        "detail_url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+      },
+      "models": [
+        {"id": "gemini-3.8-flash"},
+        {"id": "gemini-2.5-pro"},
+        {"id": "gemini-2.5-flash"},
+        {"id": "gemini-2.5-flash-lite"}
+      ],
+      "notes": "Model IDs are those with a Free Tier price of 'Free of charge' on the pricing page. On the free tier the pricing page lists 'Used to improve our products: Yes', meaning free-tier content may be used by Google to improve its products; the paid tier lists No. The billing page says new accounts begin on the Free Tier and that upgrading means linking a billing account and prepaying at least $5; it does not state outright whether the free tier needs a card. Free-tier availability and limits vary by model and can change.",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/pricing",
+        "https://ai.google.dev/gemini-api/docs/openai",
+        "https://ai.google.dev/gemini-api/docs/rate-limits",
+        "https://ai.google.dev/gemini-api/docs/billing"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "signup_url": "https://openrouter.ai/settings/keys",
+      "docs_url": "https://openrouter.ai/docs/api-reference/limits",
+      "api_base_url": "https://openrouter.ai/api/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": "unverified",
+      "anthropic_base_url": "https://openrouter.ai/api",
+      "card_required": "unverified",
+      "limits": {
+        "summary": "Free model variants (IDs ending in :free): 20 requests per minute; 50 requests per day without purchased credits, 1,000 per day with $10 or more purchased.",
+        "detail_url": "https://openrouter.ai/docs/api-reference/limits"
+      },
+      "models": [],
+      "notes": "Free variants change often; list them with GET /api/v1/models and filter for IDs ending in :free. OpenRouter documents a Claude Code setup using the Anthropic-format base URL https://openrouter.ai/api. Anthropic does not support routing Claude Code to non-Claude models through a gateway (see docs/guides/claude-code.md).",
+      "sources": [
+        "https://openrouter.ai/docs/api-reference/limits",
+        "https://openrouter.ai/docs/quickstart",
+        "https://openrouter.ai/docs/guides/coding-agents/claude-code-integration"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "signup_url": "https://console.mistral.ai",
+      "docs_url": "https://docs.mistral.ai/admin/user-management-finops/tier",
+      "api_base_url": "https://api.mistral.ai/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": "unverified",
+      "anthropic_base_url": null,
+      "card_required": false,
+      "limits": {
+        "summary": "unverified. Docs say free mode includes monthly usage within limits shown in the admin panel; numeric values are not published in the docs pages checked.",
+        "detail_url": "https://admin.mistral.ai/plateforme/limits"
+      },
+      "models": [
+        {"id": "mistral-large-latest"}
+      ],
+      "notes": "The model ID is the example used in the API reference; which models are included in free mode is not confirmed. Docs state: free mode API access is enabled by default with no credit card required. Phone verification is not mentioned in the pages checked. The base URL is derived from the documented endpoint https://api.mistral.ai/v1/chat/completions.",
+      "sources": [
+        "https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key",
+        "https://docs.mistral.ai/admin/user-management-finops/tier",
+        "https://docs.mistral.ai/api"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "cloudflare-workers-ai",
+      "name": "Cloudflare Workers AI",
+      "signup_url": "https://dash.cloudflare.com/sign-up",
+      "docs_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+      "api_base_url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": "partial",
+      "anthropic_base_url": null,
+      "card_required": "unverified",
+      "limits": {
+        "summary": "10,000 neurons per day at no charge; limits reset daily at 00:00 UTC.",
+        "detail_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+      },
+      "models": [
+        {"id": "@cf/meta/llama-3.1-8b-instruct-fp8"},
+        {"id": "@cf/openai/gpt-oss-120b"},
+        {"id": "@cf/openai/gpt-oss-20b"}
+      ],
+      "notes": "Requires your account ID in the base URL and an API token with Workers AI Read and Edit permissions. The model catalog lists the Llama model as @cf/meta/llama-3.1-8b-instruct-fp8; the OpenAI-compatibility page uses @cf/meta/llama-3.1-8b-instruct in its examples, which the catalog does not list. The Responses API is documented only for the two gpt-oss models, non-streaming. Some models (for example Moonshot Kimi, Zhipu GLM-5 and DeepSeek V4 variants) require a paid billing method.",
+      "sources": [
+        "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+        "https://developers.cloudflare.com/workers-ai/configuration/open-ai-compatibility/",
+        "https://developers.cloudflare.com/workers-ai/get-started/rest-api/"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "nvidia-nim",
+      "name": "NVIDIA NIM (build.nvidia.com)",
+      "signup_url": "https://build.nvidia.com",
+      "docs_url": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+      "api_base_url": "https://integrate.api.nvidia.com/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": "unverified",
+      "anthropic_base_url": null,
+      "card_required": "unverified",
+      "limits": {
+        "summary": "unverified. NVIDIA's official docs checked do not state free-tier limits.",
+        "detail_url": "https://build.nvidia.com"
+      },
+      "models": [],
+      "notes": "Official docs give the host https://integrate.api.nvidia.com and the endpoint POST /v1/chat/completions. Model IDs are listed on each model page at build.nvidia.com. Community forum posts mention a 40 RPM default; that is not from official documentation and is not recorded as a limit here.",
+      "sources": [
+        "https://docs.api.nvidia.com/nim/reference/llm-apis",
+        "https://docs.api.nvidia.com/nim/docs/api-quickstart"
+      ],
+      "last_verified": "2026-09-26"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face Inference Providers",
+      "signup_url": "https://huggingface.co/settings/tokens",
+      "docs_url": "https://huggingface.co/docs/inference-providers/pricing",
+      "api_base_url": "https://router.huggingface.co/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": true,
+      "anthropic_base_url": null,
+      "card_required": "unverified",
+      "limits": {
+        "summary": "Free users receive $0.10 of Inference Providers credit per month, subject to change. Further use requires purchasing credits.",
+        "detail_url": "https://huggingface.co/docs/inference-providers/pricing"
+      },
+      "models": [
+        {"id": "openai/gpt-oss-120b"},
+        {"id": "deepseek-ai/DeepSeek-V3-0324"}
+      ],
+      "notes": "A provider can be selected by suffix, for example openai/gpt-oss-120b:groq, or a policy suffix such as :fastest or :cheapest. The token needs the 'Make calls to Inference Providers' permission. The Responses API is documented as beta. On 2026-09-26 the router's GET /v1/models listed openai/gpt-oss-120b as live on several providers and deepseek-ai/DeepSeek-V3-0324 as live on featherless-ai and deepinfra; availability changes.",
+      "sources": [
+        "https://huggingface.co/docs/inference-providers/pricing",
+        "https://router.huggingface.co/v1/models",
+        "https://huggingface.co/docs/inference-providers/index",
+        "https://huggingface.co/docs/inference-providers/guides/responses-api"
+      ],
+      "last_verified": "2026-09-26"
+    }
+  ]
+}

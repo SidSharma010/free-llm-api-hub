@@ -1,0 +1,44 @@
+name: Data correction
+description: A value in providers.json is wrong or out of date
+labels: ["data"]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: The provider id from providers.json.
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field
+      description: For example limits.summary, card_required, models.
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current value
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: Correct value
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL
+      description: A page on the provider's own documentation or dashboard. Forum posts and third-party sites are not accepted.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I did not include an API key or other secret.
+          required: true

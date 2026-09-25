@@ -1,0 +1,29 @@
+name: Link check
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # 403 and 429 are common for bot traffic on documentation sites; a
+          # genuinely broken link returns 404 or a connection error.
+          args: >-
+            --no-progress
+            --max-retries 2
+            --accept 200,204,206,403,429
+            --exclude 'account_id'
+            --exclude 'admin\.mistral\.ai'
+            'README.md' 'CONTRIBUTING.md' 'docs/**/*.md' 'providers.json'
+          fail: true
