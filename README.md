@@ -19,6 +19,7 @@ The table is generated from `providers.json` by `scripts/render_table.py`. "Resp
 | [Cloudflare Workers AI](https://dash.cloudflare.com/sign-up) | `https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/v1` | 10,000 neurons per day at no charge; limits reset daily at 00:00 UTC. | unverified | partial | 2026-09-25 |
 | [NVIDIA NIM (build.nvidia.com)](https://build.nvidia.com) | `https://integrate.api.nvidia.com/v1` | NVIDIA does not publish a fixed free-tier RPM in its official docs. A moderator on NVIDIA's own developer forum stated limits 'depend on model, use-case and the amount of current overall traffic' and declined to give a fixed figure. Developers commonly report roughly 40 RPM in forum threads, but this is not an official published number and should not be relied on. | unverified | unverified | 2026-09-25 |
 | [Hugging Face Inference Providers](https://huggingface.co/settings/tokens) | `https://router.huggingface.co/v1` | Free users receive $0.10 of Inference Providers credit per month, subject to change. Further use requires purchasing credits. | unverified | Yes | 2026-09-25 |
+| [Together AI](https://api.together.ai/) | `https://api.together.ai/v1` | Together AI does not publish fixed per-model rate limits; its docs state limits are dynamic and scale with usage and live model capacity. Separately, its own pricing page lists one specific model, Ternary Bonsai 27B, priced at $0.00 per token for both input and output, confirmed live on together.ai/pricing. Other models on the platform are paid. | unverified | unverified | 2026-09-25 |
 <!-- PROVIDERS:END -->
 
 Free tiers change without notice. Confirm current limits on the provider's own page before relying on them, and open an issue if a row is out of date.
@@ -38,7 +39,7 @@ Free tiers change without notice. Confirm current limits on the provider's own p
 | Cline | [docs/guides/cline.md](docs/guides/cline.md) | Verified against Cline docs |
 | Codex CLI | [docs/guides/codex-cli.md](docs/guides/codex-cli.md) | Verified against Codex docs; requires the Responses API |
 | Claude Code | [docs/guides/claude-code.md](docs/guides/claude-code.md) | Requires an Anthropic-format endpoint; read the support note |
-| Cursor | [docs/guides/cursor.md](docs/guides/cursor.md) | Unverified: no official page found |
+| Cursor | [docs/guides/cursor.md](docs/guides/cursor.md) | Partially verified: BYOK flow confirmed by Cursor's own docs; the free-provider override trick is still community-reported |
 
 ## Testing a key
 

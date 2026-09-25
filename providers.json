@@ -240,6 +240,33 @@
         "https://huggingface.co/docs/inference-providers/guides/responses-api"
       ],
       "last_verified": "2026-09-25"
+    },
+    {
+      "id": "together-ai",
+      "name": "Together AI",
+      "signup_url": "https://api.together.ai/",
+      "docs_url": "https://docs.together.ai/docs/rate-limits",
+      "api_base_url": "https://api.together.ai/v1",
+      "api_format": "openai-chat",
+      "supports_responses_api": "unverified",
+      "anthropic_base_url": null,
+      "card_required": "unverified",
+      "limits": {
+        "summary": "Together AI does not publish fixed per-model rate limits; its docs state limits are dynamic and scale with usage and live model capacity. Separately, its own pricing page lists one specific model, Ternary Bonsai 27B, priced at $0.00 per token for both input and output, confirmed live on together.ai/pricing. Other models on the platform are paid.",
+        "detail_url": "https://www.together.ai/pricing"
+      },
+      "models": [
+        {
+          "id": "ternary/bonsai-27b"
+        }
+      ],
+      "notes": "Only the specific model listed above is confirmed free. The rest of Together AI's catalog is paid; do not assume other model IDs are free without checking the live pricing page, since it changes.",
+      "sources": [
+        "https://www.together.ai/pricing",
+        "https://docs.together.ai/docs/rate-limits",
+        "https://docs.together.ai/docs/openai-api-compatibility"
+      ],
+      "last_verified": "2026-09-25"
     }
   ]
 }
